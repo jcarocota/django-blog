@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/cats.png' %}" alt="Julio - The Blogger">
+            <h2>Blog de Julio</h2>
+        </header>
+        <p>¡Bienvenido a mi blog! Aquí comparto mis pensamientos, experiencias e ideas sobre varios temas. ¡Siéntete libre de explorar y unirte a la conversación!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>Mis Últimos Posts</h2>
+        <ul>
+            {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>¿Qué hago para vivir?</h2>
+        <p>Hola, soy Julio, un apasionado del desarrollo web y la tecnología. En este blog, comparto 
+            mis conocimientos y experiencias en el mundo de la programación, especialmente con Python 
+            y Django. ¡Espero que disfrutes de la lectura!</p>
+    </section>
+
+{% endblock %}
